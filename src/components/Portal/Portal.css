@@ -1,0 +1,5 @@
+.Portal {
+  height: 1px;
+  display:block;
+  mix-blend-mode: overlay;
+}

@@ -1,0 +1,33 @@
+.Search {
+  height: 100%;
+  display: flex;
+}
+
+.Search-field {
+  flex-grow: 1;
+  padding: 10px;
+  font: inherit;
+  background-color: transparent;
+  border: none;
+  color: gray;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.Search-button {
+  padding: 10px 20px;
+  font: inherit;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  background-color: #31271d6b;
+  border: none;
+  cursor: pointer;
+}
+
+.Search-button:hover,
+.Search-button:focus {
+  background-color: #31271de8;
+}

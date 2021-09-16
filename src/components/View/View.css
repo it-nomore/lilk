@@ -1,0 +1,25 @@
+.View {
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 0 40px;
+}
+
+.View--shorts {
+  margin-left: -40px;
+}
+
+.View--shorts .View-item {
+  margin-top: 40px;
+  margin-left: 40px;
+}
+
+.View-item {
+  position: relative;
+}
