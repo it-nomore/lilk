@@ -1,4 +1,10 @@
 class LLCK {
+  static inLitForm(llckSignStr) {
+    return llckSignStr.split(' ').map(llckSignOne => LLCK._inLitFormOne(llckSignOne)).join('--');
+  }
+  static inSignForm(llckLitStr) {
+    return llckLitStr.split('--').map(llckLitOne => LLCK._inSignFormOne(llckLitOne)).join(' ');
+  }
   static makeInfoMap(llckList) {
     const llckInfoMap = new Map();
     llckList.forEach(llckObj => {
@@ -86,6 +92,46 @@ class LLCK {
         map.set(`${prefix}${value}`, 1);
       }
     })
+  }
+  static _inLitFormOne(llckLitOne) {
+    switch (llckLitOne[0]) {
+      case '=':
+        return `id-${llckLitOne.substr(1)}`;
+      case '/':
+        return `it-${llckLitOne.substr(1)}`;
+      case ':':
+        return `is-${llckLitOne.substr(1)}`;
+      case '@':
+        return `to-${llckLitOne.substr(1)}`;
+      case '#':
+        return `in-${llckLitOne.substr(1)}`;
+      case '!':
+        return `or-${llckLitOne.substr(1)}`;
+      case '?':
+        return `by-${llckLitOne.substr(1)}`;
+      default:
+        return;
+    }
+  }
+  static _inSignFormOne(llckLitOne) {
+    switch (llckLitOne.substr(0,2)) {
+      case 'id':
+        return `=${llckLitOne.substr(3)}`;
+      case 'it':
+        return `/${llckLitOne.substr(3)}`;
+      case 'is':
+        return `:${llckLitOne.substr(3)}`;
+      case 'to':
+        return `@${llckLitOne.substr(3)}`;
+      case 'in':
+        return `#${llckLitOne.substr(3)}`;
+      case 'or':
+        return `!${llckLitOne.substr(3)}`;
+      case 'by':
+        return `?${llckLitOne.substr(3)}`;
+      default:
+        return;
+    }
   }
 }
 
