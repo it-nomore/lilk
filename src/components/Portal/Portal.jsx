@@ -14,7 +14,14 @@ function Portal({ html, name }) {
         // html.scrollHeight, 
         html.offsetHeight,
       );
-      iframeRef.current.style = `height: ${height}px`;
+      const width = Math.max(
+        body.scrollWidth, 
+        body.offsetWidth, 
+        html.clientWidth, 
+        html.scrollWidth, 
+        html.offsetWidth,
+      );
+      iframeRef.current.style = `height: ${height}px; width: ${width}px`;
     } catch(e) { console.log('error resize | ', e) }
   }
   return (
