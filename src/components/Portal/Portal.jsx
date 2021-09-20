@@ -1,5 +1,5 @@
 import './Portal.css';
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 function Portal({ html, name }) {
   const iframeRef = useRef(null)
@@ -24,6 +24,7 @@ function Portal({ html, name }) {
       iframeRef.current.style = `height: ${height}px; width: ${width}px`;
     } catch(e) { console.log('error resize | ', e) }
   }
+  useEffect(() => resize());
   return (
     <iframe 
       ref={iframeRef}

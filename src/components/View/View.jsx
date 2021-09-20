@@ -5,7 +5,10 @@ import Portal from '../Portal/Portal';
 import PushForm from '../PushForm/PushForm';
 import './View.css';
 
-function View({ req, onPull }) {
+const host = 'https://tranquil-chamber-18069.herokuapp.com/';
+// const host = 'http://localhost/';
+
+function View({ req, onPull, arrangeType }) {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
@@ -13,7 +16,7 @@ function View({ req, onPull }) {
   const [infoMap, setInfoMap] = useState(null);
 
   useEffect(() => {
-    fetch(`https://tranquil-chamber-18069.herokuapp.com/?${req}`)
+    fetch(`${host}?${req}`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -47,7 +50,7 @@ function View({ req, onPull }) {
         html: message.data,
       })
     };
-    fetch('https://tranquil-chamber-18069.herokuapp.com/', requestOptions)
+    fetch(host, requestOptions)
     setMessage(null);
   }
 
@@ -57,7 +60,7 @@ function View({ req, onPull }) {
     return <div>Загрузка...</div>;
   } else {
     return (
-      <ul className={`View ${!req ? "View--shorts" : ""}`}>
+      <ul className={`View ${!req ? "View--shorts" : ""} View--arrange_type--${arrangeType}`}>
         {req && items.map((item, index) => (
           <li key={index} className="View-item">
             <Portal html={item.html} name={index} />

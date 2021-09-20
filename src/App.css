@@ -9,6 +9,7 @@
   min-height: 42px;
   box-shadow: inset 0px 11px 8px -10px gray, inset 0px -11px 8px -10px gray;
   background-color: white;
+  display: flex;
 }
 
 .App-main {
@@ -16,4 +17,26 @@
   background: no-repeat url('./images/lilk.jpg'), gray;
   background-size: cover;
   background-blend-mode: darken;
+}
+
+
+.arrange {
+  padding-top: 8px;
+  padding-left: 13px;
+  font: inherit;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  min-width: 50px;
+  min-height: 100%;
+  border: none;
+  cursor: pointer;
+  background: no-repeat center url("data:image/svg+xml,%3C%3Fxml version='1.0'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' version='1.1' width='512' height='512' x='0' y='0' viewBox='0 0 56 56' style='enable-background:new 0 0 512 512' xml:space='preserve'%3E%3Cg%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3Cpath style='' d='M48,19.5v-7h-6v-7H0v30h7v8h7v7h42v-31H48z M52,46.5H18v-3v-2v-2v-4v-2v-2v-8h20h2h2h2h2h2h4V46.5z M4,9.5h34v3H7v19H4V9.5z M11,35.5v-2v-2v-15h27h2h2h2v3h-2h-2h-2H14v12v2v2v4h-3V35.5z' fill='%23ffffff' data-original='%23010002'/%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3Cg xmlns='http://www.w3.org/2000/svg'%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+  background-size: 60%;
+  background-color: #31271d6b;
+}
+.arrange:hover,
+.arrange:focus {
+  background-color: #31271de8;
 }
