@@ -1,0 +1,19 @@
+.DocView {
+  display: flex;
+  flex-direction: column;
+}
+
+.DocView--bordered {
+  box-shadow: 0 0 25px white;
+}
+
+.DocView-portal {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.DocView-panel {
+  display: flex;
+  justify-content: right;
+}

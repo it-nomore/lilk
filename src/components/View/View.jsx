@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
+import DocView from '../DocView/DocView';
 import Link from '../Link/Link';
 import LLCK from '../LLCK/LLCK';
-import Portal from '../Portal/Portal';
-import PushForm from '../PushForm/PushForm';
 import './View.css';
 
 const host = 'https://tranquil-chamber-18069.herokuapp.com/';
 // const host = 'http://localhost/';
 
-function View({ req, onPull, arrangeType }) {
+function View({ req, onPull, arrange }) {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
@@ -60,14 +59,27 @@ function View({ req, onPull, arrangeType }) {
     return <div>Загрузка...</div>;
   } else {
     return (
-      <ul className={`View ${!req ? "View--shorts" : ""} View--arrange_type--${arrangeType}`}>
+      <ul 
+        className={`View ${!req ? "View--shorts" : ""}`} 
+        style={{
+          flexDirection: arrange.direction,
+          flexWrap: arrange.wrap,
+          justifyContent: arrange.justify,
+          alignItems: arrange.items,
+          alignContent: arrange.content,
+        }}
+      >
         {req && items.map((item, index) => (
-          <li key={index} className="View-item">
-            <Portal html={item.html} name={index} />
-            {message && message.from === index.toString() &&
-              <PushForm onPush={handlePush} />
-            }
-          </li>
+          <DocView 
+            key={index} 
+            index={index} 
+            isOptions={arrange.options} 
+            html={item.html} 
+            message={message} 
+            onPush={handlePush} 
+            width={arrange.sizes.width} 
+            height={arrange.sizes.height} 
+          />
         ))}
         {!req && infoMap && Array.from(infoMap).map((item, index) => (
           <li key={index} className="View-item">
