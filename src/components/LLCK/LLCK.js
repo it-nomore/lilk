@@ -21,7 +21,7 @@ class LLCK {
   static parseToQuery(llckStr) {
     const llckObj = LLCK.parseToObj(llckStr);
     let llckQuery = '';
-    if (llckObj.id) llckQuery = llckObj.id;
+    if (llckObj.id) llckQuery = `id=${llckObj.id}`;
     if (llckObj.it) llckQuery = LLCK._addParam(llckQuery, 'it', llckObj.it);
     if (llckObj.is) llckQuery = LLCK._addParam(llckQuery, 'is', llckObj.is);
     if (llckObj.to) llckQuery = LLCK._addParam(llckQuery, 'to', llckObj.to);

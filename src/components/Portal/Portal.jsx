@@ -1,5 +1,5 @@
 import './Portal.css';
-import { useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 function Portal({ html, name, sizes }) {
   const [finalSizes, setFinalSizes] = useState({width: '1px', height: '1px'})
@@ -55,6 +55,11 @@ function Portal({ html, name, sizes }) {
       return {width: finalWidth, height: finalHeight}
     });
   }
+  const resize = useCallback(handleLoad, [sizes.height, sizes.width])
+  useEffect(() => {
+    const id = setInterval(resize)
+    return () => { clearInterval(id) }
+  }, [resize])
   return (
     <iframe 
       ref={iframeRef}
